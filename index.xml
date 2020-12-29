@@ -6,16 +6,7 @@
     <description>Recent content on welcome to st0n3&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Dec 2020 11:59:42 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>p32 or p64 or struct ?</title>
-      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/13.html</link>
-      <pubDate>Tue, 29 Dec 2020 11:59:42 +0000</pubDate>
-      
-      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/13.html</guid>
-      <description>p32 or p64 or struct ? &amp;gt;&amp;gt;&amp;gt; from pwn import * &amp;gt;&amp;gt;&amp;gt; import struct &amp;gt;&amp;gt;&amp;gt; p32(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;I&amp;#34;,0xdeadbeef) == p32(0xdeadbeef) True &amp;gt;&amp;gt;&amp;gt; p64(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde\x00\x00\x00\x00&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;l&amp;#34;,0xdeadbeef) == p64(0xdeadbeef) True reference  pwntools doc struct doc  </description>
-    </item>
-    
+    <lastBuildDate>Tue, 29 Dec 2020 11:07:11 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>容器安全研究的三重境界</title>
       <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/11.html</link>
@@ -72,6 +63,27 @@ $$ \begin{align} &amp;amp; p^{-1} \cdot p \equiv 1 \mod q \newline &amp;amp; q^{
       <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/docker/%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9/4.html</guid>
       <description>容器安全风险分析 &amp;hellip;
 使用容器技术产品的测试方案 </description>
+    </item>
+    
+    <item>
+      <title>pwnable.tw-100-start</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%B7%A5%E4%B8%9A%E7%95%8C%E6%83%85%E6%8A%A5%E5%AD%A6%E4%B9%A0/TROOPERS/14.html</link>
+      <pubDate>Mon, 02 Sep 2019 18:13:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%B7%A5%E4%B8%9A%E7%95%8C%E6%83%85%E6%8A%A5%E5%AD%A6%E4%B9%A0/TROOPERS/14.html</guid>
+      <description>pwnable.tw-100-start 1. 代码分析 1.1 文件信息 这是一个32位的Elf文件
+$ file start start: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, not stripped checksec显示未开启任何安全保护机制
+$ checksec start [*] &amp;#39;/home/st0n3/ctfs/pwnable.tw/100_Start/challenges/start&amp;#39; Arch: i386-32-little RELRO: No RELRO Stack: No canary found NX: NX disabled PIE: No PIE (0x8048000) 1.2 汇编代码 使用r2分析汇编，只有一个entry0入口函数。
+$ r2 start Warning: Cannot initialize dynamic strings [0x08048060]&amp;gt; aaa [x] Analyze all flags starting with sym. and entry0 (aa) [x] Analyze function calls (aac) [x] Analyze len bytes of instructions for references (aar) [x] Constructing a function name for fcn.</description>
+    </item>
+    
+    <item>
+      <title>p32 or p64 or struct ?</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/13.html</link>
+      <pubDate>Sun, 01 Sep 2019 15:47:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/13.html</guid>
+      <description>p32 or p64 or struct ? &amp;gt;&amp;gt;&amp;gt; from pwn import * &amp;gt;&amp;gt;&amp;gt; import struct &amp;gt;&amp;gt;&amp;gt; p32(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;I&amp;#34;,0xdeadbeef) == p32(0xdeadbeef) True &amp;gt;&amp;gt;&amp;gt; p64(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde\x00\x00\x00\x00&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;l&amp;#34;,0xdeadbeef) == p64(0xdeadbeef) True reference  pwntools doc struct doc  </description>
     </item>
     
     <item>
