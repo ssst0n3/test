@@ -57,6 +57,22 @@ $$ \begin{align} &amp;amp; p^{-1} \cdot p \equiv 1 \mod q \newline &amp;amp; q^{
     </item>
     
     <item>
+      <title>方舟生存进化: docker一键部署</title>
+      <link>/post/%E6%B8%B8%E6%88%8F/%E6%96%B9%E8%88%9F%E7%94%9F%E5%AD%98%E8%BF%9B%E5%8C%96-docker%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2.html</link>
+      <pubDate>Fri, 26 Jun 2020 14:00:00 +0000</pubDate>
+      
+      <guid>/post/%E6%B8%B8%E6%88%8F/%E6%96%B9%E8%88%9F%E7%94%9F%E5%AD%98%E8%BF%9B%E5%8C%96-docker%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2.html</guid>
+      <description>方舟生存进化: docker一键部署 前段时间epic白给了方舟，俺也在方舟度过了153个小时的时间了，简单分享下部署方舟服务器的过程。
+1. quick-start 创建docker-compose.yml文件, 执行docker-compose up -d拉起容器
+version: &#39;3&#39; services: ark: container_name: ark image: thmhoag/arkserver volumes: - steam:/home/steam/Steam - ark:/ark ports: - &amp;quot;27015:27015&amp;quot; - &amp;quot;27015:27015/udp&amp;quot; - &amp;quot;7777:7777&amp;quot; - &amp;quot;7777:7777/udp&amp;quot; - &amp;quot;7778:7778&amp;quot; - &amp;quot;7778:7778/udp&amp;quot; - &amp;quot;7779:7779&amp;quot; - &amp;quot;7779:7779/udp&amp;quot; - &amp;quot;32330:32330&amp;quot; environment: - am_ark_SessionName=my_ark - am_ark_GameModIds=889745138,751991809,1404697612 - am_ark_ServerPVE=True restart: always volumes: steam: name: steam ark: name: ark 在steam里添加游戏服务器，就可以愉快得开始啦。
+steam-&amp;gt;查看-&amp;gt;服务器-&amp;gt;收藏夹-&amp;gt;添加服务器-&amp;gt;输入服务器ip:27015-&amp;gt;将此地址添加至收藏夹
+2. 解释 这个部署方案源于两个开源项目:
+ https://github.com/FezVrasta/ark-server-tools https://github.com/thmhoag/arkserver  前者实现了arkmanager工具，后者实现了容器化部署。
+docker-compose.yml文件中，配置了多个端口，其中27015是steam与服务器交互的端口，7777-7779(可自定义)是自定义的服务器端口，32330(可选)是服务器命令行管理工具RCON的连接端口。
+可以通过指定环境变量来将服务器配置传递给arkmanager，可以配置的参数参考 https://github.com/FezVrasta/ark-server-tools#configuration-files/</description>
+    </item>
+    
+    <item>
       <title>letsencrypt通过dns获取证书</title>
       <link>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/letsencrypt%E9%80%9A%E8%BF%87dns%E8%8E%B7%E5%8F%96%E8%AF%81%E4%B9%A6.html</link>
       <pubDate>Mon, 11 May 2020 07:36:00 +0000</pubDate>
