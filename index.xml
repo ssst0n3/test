@@ -66,6 +66,15 @@ $$ \begin{align} &amp;amp; p^{-1} \cdot p \equiv 1 \mod q \newline &amp;amp; q^{
     </item>
     
     <item>
+      <title>如何使用BootstrapVue</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/15.html</link>
+      <pubDate>Fri, 04 Oct 2019 05:58:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/15.html</guid>
+      <description>如何使用BootstrapVue 一、使用WebStorm创建Vue项目 二、在main.js引用BootstrapVue import BootstrapVue from &amp;#39;bootstrap-vue&amp;#39; import &amp;#39;bootstrap/dist/css/bootstrap.css&amp;#39; import &amp;#39;bootstrap-vue/dist/bootstrap-vue.css&amp;#39; Vue.use(BootstrapVue) 三、现在可以使用BootstrapVue了 &amp;lt;b-btn variant=&amp;#34;info&amp;#34;&amp;gt;submit&amp;lt;/b-btn&amp;gt; </description>
+    </item>
+    
+    <item>
       <title>pwnable.tw-100-start</title>
       <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%B7%A5%E4%B8%9A%E7%95%8C%E6%83%85%E6%8A%A5%E5%AD%A6%E4%B9%A0/TROOPERS/14.html</link>
       <pubDate>Mon, 02 Sep 2019 18:13:00 +0000</pubDate>
