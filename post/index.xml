@@ -57,6 +57,18 @@ $$ \begin{align} &amp;amp; p^{-1} \cdot p \equiv 1 \mod q \newline &amp;amp; q^{
     </item>
     
     <item>
+      <title>docker-compose使用host网络</title>
+      <link>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/docker-compose%E4%BD%BF%E7%94%A8host%E7%BD%91%E7%BB%9C.html</link>
+      <pubDate>Mon, 11 May 2020 06:25:00 +0000</pubDate>
+      
+      <guid>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/docker-compose%E4%BD%BF%E7%94%A8host%E7%BD%91%E7%BB%9C.html</guid>
+      <description>docker-compose使用host网络 根据官方文档, 如果使用stack命令部署，可以使用networks参数配置，如果直接使用docker-compose, 使用network_mode参数配置。
+ Use the host’s networking stack, or no networking. Equivalent to docker run &amp;ndash;net=host or docker run &amp;ndash;net=none. Only used if you use docker stack commands. If you use the docker-compose command, use network_mode instead. &amp;mdash;-compose file reference: https://docs.docker.com/compose/compose-file/#devices
+ stack version: &amp;quot;3.8&amp;quot; services: web: networks: hostnet: {} networks: hostnet: external: true name: host docker-compose services: web: network_mode: &amp;quot;host&amp;quot; 问题 如果在docker-compose中使用networks参数配置系统默认网卡，会报以下错误：
+Creating zerotier-one ... error ERROR: for zerotier-one network-scoped alias is supported only for containers in user defined networks ERROR: for one network-scoped alias is supported only for containers in user defined networks ERROR: Encountered errors while bringing up the project.</description>
+    </item>
+    
+    <item>
       <title>vscode terminal字符间距过宽</title>
       <link>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/vscode-terminal%E5%AD%97%E7%AC%A6%E9%97%B4%E8%B7%9D%E8%BF%87%E5%AE%BD.html</link>
       <pubDate>Fri, 08 May 2020 15:42:00 +0000</pubDate>
