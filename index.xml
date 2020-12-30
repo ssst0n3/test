@@ -6,15 +6,53 @@
     <description>Recent content on welcome to st0n3&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Dec 2020 09:12:28 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Dec 2020 11:07:11 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>linux下如何优雅得网速监控</title>
-      <link>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/8.html</link>
-      <pubDate>Mon, 28 Dec 2020 09:12:28 +0000</pubDate>
+      <title>容器安全研究的三重境界</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/11.html</link>
+      <pubDate>Tue, 29 Dec 2020 11:07:11 +0000</pubDate>
       
-      <guid>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/8.html</guid>
-      <description>linux下如何优雅得网速监控 安装nload sudo apt-get install nload 使用 nload -u K wlan0
-Device wlan0 [100.66.25.144] (1/1): ================================================================================= Incoming: # #. ## | Curr: 51.75 kByte/s ## #| Avg: 20.50 kByte/s .## |## Min: 0.00 kByte/s ### ###| Max: 1159.04 kByte/s .. |### ####. Ttl: 1.50 GByte Outgoing: Curr: 2.62 kByte/s Avg: 1.95 kByte/s Min: 0.00 kByte/s Max: 39.50 kByte/s Ttl: 63.47 MByte </description>
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/11.html</guid>
+      <description>容器安全研究的三重境界 与其他形态的技术相比，容器安全的漏洞更聚集在设计层面，而非实现层面，准确得说，非编码层面。
+编码层面的漏洞更容易发现，且更容易自动化发现，但这种“优势”不会一直存在。因此，必然将形成漏洞越来越难挖的局面。而对容器技术而言，这个时间点来得相当早。这使得深入容器安全显得不那么容易，使研究者沮丧，但这也会极大地锻炼安全研究者的思维能力。
+一、四级安全性 如果我们作以下定义：
+ 将理想状态的安全定义为“理想模型” 将实际设计的结果定义为“设计模型” 将真实实现的代码定义为“实现模型”  我们将会得到4个不同级别的安全性： $$ \begin{equation} \left\lbrace \begin{array}{lr} 理想模型 \newline 设计模型 \newline 实现模型 \newline 编码漏洞 \end{array} \right. \end{equation} $$
+以及3个可供挖掘漏洞的空间：
+1. 编码漏洞 该类问题通常与语言本身强相关，较为显著的包括C语言带来的内存安全类问题、PHP弱类型引发的问题等。各语言都有一些不同的、隐蔽的特性，如果开发者不能熟知这些特性，则可能会埋藏漏洞。
+这类问题的发现手段多，包括Fuzz,代码审计等。呈现出的漏洞数量也相当可观。
+2. 三种模型间的差距  分别分析出设计模型和实现模型，将二者对比，即可得出实现层面的漏洞 将设计模型与理想模型对比，则可得出设计层面的漏洞  二、三重境界 1. 设计漏洞 寻找设计层面的漏洞，我们需要回答两个问题
+ 什么是容器的理想模型？ 某容器相关的项目，当前的设计模型是什么样的  对于容器来说，问题2是容易回答的，oci有翔实的specification。
+难点在于解答问题一，或者我们是否有已知的安全设计模式可以套上去？
+我暂时没有发现有可以直接使用的方法论，也许我们可以自行总结一套。这方面，后续我可以尝试用很长一个篇幅解答。
+2. 实现漏洞 我们将追求放低至发现实现层面的漏洞，需要做的事情就简单多了
+ 熟读oci specification 走读容器相关项目的代码  看，简单多了——至少是可执行的！
+3. 编码漏洞 开篇即谈到了，容器安全的漏洞更聚集于非编码层面。但这个论述的对象主要是针对容器相关产品自身而言的，但如果将范围扩大至容器生态链呢？
+例如
+ docker所调用的各组件，甚至各LSM模块 由各云厂商以开源形式贡献至k8s的CNI &amp;hellip;  这样看，我们还是有希望在此层面挖掘相关漏洞的，但可能需要将挖掘范围扩大、将漏洞挖掘的方法进行微调，以适应于发现容器类漏洞。
+三、结语 对容器来说，少有编码层面的漏洞可以挖，没有办法；对其他类型的技术栈来说，现在编码层面还有很大的研究空间，但已经有这种趋势，也应该尽早布局。
+如果安全也有修仙一样的等级的话，挖掘编码层漏洞的集大成者就像是斗宗强者。当然很厉害了，但是上层似乎还有更广阔的空间。</description>
+    </item>
+    
+    <item>
+      <title>一个好用的乘法逆元扩展结论</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/9.html</link>
+      <pubDate>Wed, 28 Oct 2020 04:08:34 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/9.html</guid>
+      <description>一个好用的乘法逆元扩展结论 比赛中遇到的一个好用的定理，不知道有没有名字，记录一下
+$$ \begin{align} &amp;amp; p^{-1} \cdot p \equiv 1 \mod q \newline &amp;amp; q^{-1} \cdot q \equiv 1 \mod p \newline &amp;amp; \Longleftrightarrow \newline &amp;amp; p^{-1}\cdot p+q^{-1}\cdot q \equiv 1 \mod p\cdot q \end{align} $$
+1. 证明 (1) $$ \begin{align} &amp;amp; 1 \equiv p^{-1} \cdot p \mod q \
+&amp;amp; 1 \equiv q^{-1} \cdot q \mod p \end{align} $$
+由中国剩余定理： $$ \begin{align} 1 &amp;amp; = \sum^{k}_{i=1}a_ic_i \mod p\cdot q \</description>
+    </item>
+    
+    <item>
+      <title>为什么需要技能树</title>
+      <link>/post/%E5%BC%80%E5%8F%91/golang/5.html</link>
+      <pubDate>Wed, 14 Oct 2020 10:06:13 +0000</pubDate>
+      
+      <guid>/post/%E5%BC%80%E5%8F%91/golang/5.html</guid>
+      <description> 结构化：数据结构化 系统性：知识系统性 可视化：成长可视化  </description>
     </item>
     
     <item>
@@ -28,21 +66,90 @@ Device wlan0 [100.66.25.144] (1/1): ============================================
     </item>
     
     <item>
-      <title>test2</title>
-      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E4%BA%BA%E6%89%8D%E7%AB%9E%E4%BA%89%E5%8A%9B/%E5%AE%89%E5%85%A8%E8%81%8C%E4%B8%9A%E8%AE%A4%E8%AF%81/oscp/2.html</link>
-      <pubDate>Wed, 07 Oct 2020 18:16:52 +0000</pubDate>
+      <title>SPN线性密码分析</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/17.html</link>
+      <pubDate>Tue, 24 Mar 2020 01:01:00 +0000</pubDate>
       
-      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E4%BA%BA%E6%89%8D%E7%AB%9E%E4%BA%89%E5%8A%9B/%E5%AE%89%E5%85%A8%E8%81%8C%E4%B8%9A%E8%AE%A4%E8%AF%81/oscp/2.html</guid>
-      <description>hello ooooooooooo ooooooooooo </description>
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/17.html</guid>
+      <description>SPN线性密码分析 在学习SPN线性密码分析时，我找了很多资料。但是很多时候都感觉这些材料不算细致，我也遇到了非常多的困惑，所以希望能细致入微的记录一下。
+本文基本上是 A Tutorial on Linear and Differential Cryptanalysis 的翻译，用自己的语言复述了一遍，加了部分自己的理解。
+一、块加密 块加密(Block Cipher)，或称为分组加密，是一种对称加密算法。它将明文分成多个等长的块（block），使用确定的算法和对称密钥对每组分别加密解密。通常来说，每个块使用的加密算法是相同的，但是密码组件不一定相同，例如不同块的S盒不一定相同。
+二、SPN SPN——代换-置换网络(Substitution–permutation network), 是一系列被应用于分组密码中相关的数学运算，最典型的就是AES。这种加密网络使用明文块和密钥块作为输入，并通过交错的若干“轮”代换操作和置换操作产生密文块。代换（Substitution）和置换（Permutation）的组件分别被称作S盒（替换盒，S-boxes）和P盒（排列盒，P-boxes）。
+我在解SPN和Feistel相关算法的密码时，常常会觉得代换密码和置换密码的区别十分有限，非常困惑，后来我在写本文时想通了，如果你也有这个困惑，可以参考一下我的这篇博客：代换密码和置换密码在块加密中的作用与区别
+下图是 Heys 在 A Tutorial on Linear and Differential Cryptanalysis 中设计的一个非常基础的&amp;quot;Toy Cipher&amp;quot;。
+我们可以通过这个基础的&amp;quot;Toy Cipher&amp;quot;，来学习一下SPN。
+这个SPN密码中，输入16bit的明文和16bit的密钥，输出16bit的密文。分为4个块，每个块中, 分别有4bit明文、密文。共有4轮加密，每一轮加密由3个过程组成：
+ 轮密钥异或 代换 (Substitution) 置换 (Permutation)  在第四轮，没有置换过程，增加了一个轮密钥异或的过程。
+没有置换是因为置换密码主要起到的是扩散功能，使字母分布失去统计特征。置换密码是一个完全线性的过程，因此在最后一轮中，置换加密不会提升安全性。
+增加了一轮 轮密钥异或，主要是为了防止最后一轮的代换密码在密码分析中被非常容易的绕过。
+某种意义上，也可以认为是为了加密过程与解密过程的对称。
+1. 轮密钥异或 本例中，每一轮密钥都未知，每轮密钥之间的关系也未知。
+2. 代换 (Substitution)    input 0 1 2 3 4 5 6 7 8 9 A B C D E F     output E 4 D 1 2 F B 8 3 A 6 C 5 9 0 7    这是一个4x4的s盒，通常一个加密算法中会有多个s盒，s盒的数量与input的长度有关：</description>
     </item>
     
     <item>
-      <title>test</title>
-      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E4%BA%BA%E6%89%8D%E7%AB%9E%E4%BA%89%E5%8A%9B/%E5%AE%89%E5%85%A8%E8%81%8C%E4%B8%9A%E8%AE%A4%E8%AF%81/oscp/1.html</link>
-      <pubDate>Wed, 07 Oct 2020 17:15:08 +0000</pubDate>
+      <title>正确使用Go DockerSDK(gomod)</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/16.html</link>
+      <pubDate>Sun, 29 Dec 2019 17:30:00 +0000</pubDate>
       
-      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E4%BA%BA%E6%89%8D%E7%AB%9E%E4%BA%89%E5%8A%9B/%E5%AE%89%E5%85%A8%E8%81%8C%E4%B8%9A%E8%AE%A4%E8%AF%81/oscp/1.html</guid>
-      <description>hello ooooooooooo ooooooooooo </description>
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/16.html</guid>
+      <description>正确使用Go DockerSDK(gomod) 1. 背景 1.1 go语言特性: 标准导入路径(canonical import path)  Go 1.4 introduces an annotation for package clauses in Go source that identify a canonical import path for the package. If an import is attempted using a path that is not canonical, the go command will refuse to compile the importing package.
+https://golang.org/doc/go1.4#canonicalimports
+ go1.4 引入了一个特性，在package后可以使用注释声明导入这个包的标准路径, 叫做canonical import path。如果导入某个包的路径与这个canonical import path不同，则go命令会拒绝编译该包。
+例如：
+package pdf // import &amp;quot;rsc.io/pdf&amp;quot; 1.2 docker项目更名 docker详细开发现状参见: docker开发现状</description>
+    </item>
+    
+    <item>
+      <title>如何使用BootstrapVue</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/15.html</link>
+      <pubDate>Fri, 04 Oct 2019 05:58:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/staaldraad/15.html</guid>
+      <description>如何使用BootstrapVue 一、使用WebStorm创建Vue项目 二、在main.js引用BootstrapVue import BootstrapVue from &amp;#39;bootstrap-vue&amp;#39; import &amp;#39;bootstrap/dist/css/bootstrap.css&amp;#39; import &amp;#39;bootstrap-vue/dist/bootstrap-vue.css&amp;#39; Vue.use(BootstrapVue) 三、现在可以使用BootstrapVue了 &amp;lt;b-btn variant=&amp;#34;info&amp;#34;&amp;gt;submit&amp;lt;/b-btn&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>pwnable.tw-100-start</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%B7%A5%E4%B8%9A%E7%95%8C%E6%83%85%E6%8A%A5%E5%AD%A6%E4%B9%A0/TROOPERS/14.html</link>
+      <pubDate>Mon, 02 Sep 2019 18:13:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%B7%A5%E4%B8%9A%E7%95%8C%E6%83%85%E6%8A%A5%E5%AD%A6%E4%B9%A0/TROOPERS/14.html</guid>
+      <description>pwnable.tw-100-start 1. 代码分析 1.1 文件信息 这是一个32位的Elf文件
+$ file start start: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, not stripped checksec显示未开启任何安全保护机制
+$ checksec start [*] &amp;#39;/home/st0n3/ctfs/pwnable.tw/100_Start/challenges/start&amp;#39; Arch: i386-32-little RELRO: No RELRO Stack: No canary found NX: NX disabled PIE: No PIE (0x8048000) 1.2 汇编代码 使用r2分析汇编，只有一个entry0入口函数。
+$ r2 start Warning: Cannot initialize dynamic strings [0x08048060]&amp;gt; aaa [x] Analyze all flags starting with sym. and entry0 (aa) [x] Analyze function calls (aac) [x] Analyze len bytes of instructions for references (aar) [x] Constructing a function name for fcn.</description>
+    </item>
+    
+    <item>
+      <title>p32 or p64 or struct ?</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/13.html</link>
+      <pubDate>Sun, 01 Sep 2019 15:47:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/13.html</guid>
+      <description>p32 or p64 or struct ? &amp;gt;&amp;gt;&amp;gt; from pwn import * &amp;gt;&amp;gt;&amp;gt; import struct &amp;gt;&amp;gt;&amp;gt; p32(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;I&amp;#34;,0xdeadbeef) == p32(0xdeadbeef) True &amp;gt;&amp;gt;&amp;gt; p64(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde\x00\x00\x00\x00&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;l&amp;#34;,0xdeadbeef) == p64(0xdeadbeef) True reference  pwntools doc struct doc  </description>
+    </item>
+    
+    <item>
+      <title>Go os/exec坑</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/12.html</link>
+      <pubDate>Tue, 27 Aug 2019 15:00:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8/%E8%BF%9B%E7%A8%8B%E5%AE%B9%E5%99%A8/%E5%8E%86%E5%8F%B2%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%A4%8D%E7%8E%B0/CVE-2019-13139-Docker-build-code-execution/12.html</guid>
+      <description>Go os/exec坑 cp: cannot stat ‘./test/*’: No such file or directory out, err := exec.Command(&amp;#34;cp&amp;#34;, &amp;#34;./test/*&amp;#34;, &amp;#34;/tmp&amp;#34;).CombinedOutput() logrus.Info(cmd) logrus.Info(string(out)) 这里的*不会被认为是通配符，而是认为是个文件。
+https://stackoverflow.com/questions/31467153/golang-failed-exec-command-that-works-in-terminal
+使用以下方法避免
+cmd := &amp;#34;cp ./test/* /tmp -r&amp;#34; out, err := exec.Command(&amp;#34;sh&amp;#34;, &amp;#34;-c&amp;#34;, cmd).CombinedOutput() logrus.Info(cmd) logrus.Info(string(out)) </description>
+    </item>
+    
+    <item>
+      <title>linux下如何优雅得网速监控</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%B7%A5%E4%B8%9A%E7%95%8C%E6%83%85%E6%8A%A5%E5%AD%A6%E4%B9%A0/10.html</link>
+      <pubDate>Sun, 18 Aug 2019 17:05:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6/%E5%B7%A5%E4%B8%9A%E7%95%8C%E6%83%85%E6%8A%A5%E5%AD%A6%E4%B9%A0/10.html</guid>
+      <description>linux下如何优雅得网速监控 安装nload sudo apt-get install nload 使用 nload -u K wlan0
+Device wlan0 [100.66.25.144] (1/1): ================================================================================= Incoming: # #. ## | Curr: 51.75 kByte/s ## #| Avg: 20.50 kByte/s .## |## Min: 0.00 kByte/s ### ###| Max: 1159.04 kByte/s .. |### ####. Ttl: 1.50 GByte Outgoing: Curr: 2.62 kByte/s Avg: 1.95 kByte/s Min: 0.00 kByte/s Max: 39.50 kByte/s Ttl: 63.47 MByte </description>
     </item>
     
   </channel>
