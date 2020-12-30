@@ -191,11 +191,7 @@ This task has been rated by 73 teams. The average rating is 3.99 (5.00 max).
       <pubDate>Sun, 29 Dec 2019 17:30:00 +0000</pubDate>
       
       <guid>/post/%E5%BC%80%E5%8F%91/golang/Docker-SDK/%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8Go-DockerSDKgomod.html</guid>
-      <description>正确使用Go DockerSDK(gomod) 1. 背景 1.1 go语言特性: 标准导入路径(canonical import path)  Go 1.4 introduces an annotation for package clauses in Go source that identify a canonical import path for the package. If an import is attempted using a path that is not canonical, the go command will refuse to compile the importing package.
-https://golang.org/doc/go1.4#canonicalimports
- go1.4 引入了一个特性，在package后可以使用注释声明导入这个包的标准路径, 叫做canonical import path。如果导入某个包的路径与这个canonical import path不同，则go命令会拒绝编译该包。
-例如：
-package pdf // import &amp;quot;rsc.io/pdf&amp;quot; 1.2 docker项目更名 docker详细开发现状参见: docker开发现状</description>
+      <description>I&amp;rsquo;m busy right now, try again later.</description>
     </item>
     
     <item>
@@ -225,7 +221,7 @@ $ r2 start Warning: Cannot initialize dynamic strings [0x08048060]&amp;gt; aaa [
       <pubDate>Sun, 01 Sep 2019 15:47:00 +0000</pubDate>
       
       <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/CTF/pwn/pwntools/p32-or-p64-or-struct.html</guid>
-      <description>p32 or p64 or struct ? &amp;gt;&amp;gt;&amp;gt; from pwn import * &amp;gt;&amp;gt;&amp;gt; import struct &amp;gt;&amp;gt;&amp;gt; p32(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;I&amp;#34;,0xdeadbeef) == p32(0xdeadbeef) True &amp;gt;&amp;gt;&amp;gt; p64(0xdeadbeef) &amp;#39;\xef\xbe\xad\xde\x00\x00\x00\x00&amp;#39; &amp;gt;&amp;gt;&amp;gt; struct.pack(&amp;#34;l&amp;#34;,0xdeadbeef) == p64(0xdeadbeef) True reference  pwntools doc struct doc  </description>
+      <description>I&amp;rsquo;m busy right now, try again later.</description>
     </item>
     
     <item>
@@ -234,10 +230,7 @@ $ r2 start Warning: Cannot initialize dynamic strings [0x08048060]&amp;gt; aaa [
       <pubDate>Tue, 27 Aug 2019 15:00:00 +0000</pubDate>
       
       <guid>/post/%E5%BC%80%E5%8F%91/golang/go%E5%9D%91/Go-osexec%E5%9D%91.html</guid>
-      <description>Go os/exec坑 cp: cannot stat ‘./test/*’: No such file or directory out, err := exec.Command(&amp;#34;cp&amp;#34;, &amp;#34;./test/*&amp;#34;, &amp;#34;/tmp&amp;#34;).CombinedOutput() logrus.Info(cmd) logrus.Info(string(out)) 这里的*不会被认为是通配符，而是认为是个文件。
-https://stackoverflow.com/questions/31467153/golang-failed-exec-command-that-works-in-terminal
-使用以下方法避免
-cmd := &amp;#34;cp ./test/* /tmp -r&amp;#34; out, err := exec.Command(&amp;#34;sh&amp;#34;, &amp;#34;-c&amp;#34;, cmd).CombinedOutput() logrus.Info(cmd) logrus.Info(string(out)) </description>
+      <description>I&amp;rsquo;m busy right now, try again later.</description>
     </item>
     
     <item>
