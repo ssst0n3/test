@@ -57,6 +57,25 @@ $$ \begin{align} &amp;amp; p^{-1} \cdot p \equiv 1 \mod q \newline &amp;amp; q^{
     </item>
     
     <item>
+      <title>VolgaCTF2020Qualifier Crypto Guess writeup</title>
+      <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/CTF/crypto/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/ElGamal/VolgaCTF2020Qualifier-Crypto-Guess-writeup.html</link>
+      <pubDate>Wed, 01 Apr 2020 05:53:00 +0000</pubDate>
+      
+      <guid>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/CTF/crypto/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/ElGamal/VolgaCTF2020Qualifier-Crypto-Guess-writeup.html</guid>
+      <description>VolgaCTF2020Qualifier Crypto Guess writeup 上周末玩了下VolgaCTF 2020 Qualifier(https://ctftime.org/event/933), 只做了几道密码题，因为其他题都没有思路T_T 。整体感觉俄罗斯人的脑洞很大，数学功底很好。其中有一道ElGamal相关的密码题，虽然没感觉在现实中有什么实际用途，但是学到了一些重要的性质。
+我的解法比较简单，但是好像是非预期解。赛后，在这篇wp里发现了一个更完美的解法：标准解法的wp(https://www.josephsurin.me/posts/2020-03-30-volgactf-2020-qualifier-writeups#guess) 。我会在第三节记录下我的解法，在第四节简单翻译下标准解法。
+一、题目信息  Guess
+Try to guess all encrypted bits and get your reward!
+server.py(https://q.2020.volgactf.ru/files/541eeaf9fdf2d86fbe87def09be7e560/server.py)
+nc guess.q.2020.volgactf.ru 7777
+Your team has solved this task on Mar 28 at 21:20 UTC.
+179 other teams have managed to do the same.
+This task has been rated by 73 teams. The average rating is 3.99 (5.00 max).
+ server.py如下：
+#!/usr/bin/python # -*- coding: utf-8 -*- from __future__ import print_function from Crypto.</description>
+    </item>
+    
+    <item>
       <title>SPN线性密码分析</title>
       <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E7%90%86%E8%AE%BA/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/SPN%E7%BA%BF%E6%80%A7%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90.html</link>
       <pubDate>Tue, 24 Mar 2020 01:01:00 +0000</pubDate>
