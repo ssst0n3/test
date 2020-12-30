@@ -57,6 +57,17 @@ $$ \begin{align} &amp;amp; p^{-1} \cdot p \equiv 1 \mod q \newline &amp;amp; q^{
     </item>
     
     <item>
+      <title>vscode terminal字符间距过宽</title>
+      <link>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/vscode-terminal%E5%AD%97%E7%AC%A6%E9%97%B4%E8%B7%9D%E8%BF%87%E5%AE%BD.html</link>
+      <pubDate>Fri, 08 May 2020 15:42:00 +0000</pubDate>
+      
+      <guid>/post/IT%E6%9D%82%E8%B4%A7%E9%93%BA/vscode-terminal%E5%AD%97%E7%AC%A6%E9%97%B4%E8%B7%9D%E8%BF%87%E5%AE%BD.html</guid>
+      <description>vscode terminal字符间距过宽 kali linux 2020.1b, vscode terminal 1.44.2 的字符间距过宽。
+修改&amp;quot;terminal.integrated.fontFamily&amp;quot;可以设置字体，但是我尝试了很多种字体都无效，仅发现修改为&amp;quot;Hack&amp;quot;字体有效。
+坐等社区解决</description>
+    </item>
+    
+    <item>
       <title>kali linux常用配置</title>
       <link>/post/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/kali/kali-linux%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html</link>
       <pubDate>Fri, 10 Apr 2020 12:30:00 +0000</pubDate>
